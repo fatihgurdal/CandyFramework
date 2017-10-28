@@ -40,7 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\Base\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entity\Base\" />
+    <Folder Include="Entity\DatabaseModel\" />
+    <Folder Include="Entity\ViewModel\" />
+    <Folder Include="Interface\DatabaseModel\" />
+    <Folder Include="Interface\ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

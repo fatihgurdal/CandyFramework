@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\CandyFramework.Output\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CandyFramework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CandyFramework.Output\CandyFramework.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,15 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Base\User.cs" />
+    <Compile Include="Entity\Entity\UserEntity.cs" />
+    <Compile Include="Entity\ViewModel\UserView.cs" />
     <Compile Include="Interface\Base\IUser.cs" />
+    <Compile Include="Interface\Entity\IUserEntity.cs" />
+    <Compile Include="Interface\ViewModel\IUserView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entity\Base\" />
-    <Folder Include="Entity\DatabaseModel\" />
-    <Folder Include="Entity\ViewModel\" />
-    <Folder Include="Interface\DatabaseModel\" />
-    <Folder Include="Interface\ViewModel\" />
+    <Folder Include="Interface\VirtualViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

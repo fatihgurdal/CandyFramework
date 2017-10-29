@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\CandyFramework.Output\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,6 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ConnectionProvider.cs" />
+    <Compile Include="Concrete\LogonUser.cs" />
+    <Compile Include="Enum\DbConEnum.cs" />
+    <Compile Include="Enum\DbStateEnum.cs" />
+    <Compile Include="Interface\DataAccess\IRepository.cs" />
+    <Compile Include="Interface\Entity\ICreateEntity.cs" />
+    <Compile Include="Interface\Entity\IEntity.cs" />
+    <Compile Include="Interface\Entity\IGuildEntity.cs" />
+    <Compile Include="Interface\Entity\IKeyEntity.cs" />
+    <Compile Include="Interface\Entity\IStandartEntity.cs" />
+    <Compile Include="Interface\Entity\IState.cs" />
+    <Compile Include="Interface\Entity\IUpdateEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

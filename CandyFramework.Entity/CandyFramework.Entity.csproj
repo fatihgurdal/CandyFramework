@@ -47,13 +47,13 @@
     <Compile Include="Entity\Base\User.cs" />
     <Compile Include="Entity\Entity\UserEntity.cs" />
     <Compile Include="Entity\ViewModel\UserView.cs" />
+    <Compile Include="Entity\ViewModel\VirtualViewModel\UserRegisterView.cs" />
     <Compile Include="Interface\Base\IUser.cs" />
     <Compile Include="Interface\Entity\IUserEntity.cs" />
     <Compile Include="Interface\ViewModel\IUserView.cs" />
+    <Compile Include="Interface\ViewModel\VirtualViewModel\IUserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\VirtualViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

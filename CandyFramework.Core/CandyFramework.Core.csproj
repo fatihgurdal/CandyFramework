@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CandyFramework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CandyFramework.Output\CandyFramework.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\ConnectionProvider.cs" />
+    <Compile Include="Concrete\Common\ConnectionProvider.cs" />
+    <Compile Include="Concrete\Common\Constants.cs" />
+    <Compile Include="Concrete\Common\Encryption.cs" />
     <Compile Include="Concrete\LogonUser.cs" />
     <Compile Include="Enum\DbConEnum.cs" />
     <Compile Include="Enum\DbStateEnum.cs" />

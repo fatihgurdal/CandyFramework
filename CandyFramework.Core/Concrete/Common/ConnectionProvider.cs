@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CandyFramework.Core.Common
+namespace CandyFramework.Core.Concrete.Common
 {
     public class ConnectionProvider
     {

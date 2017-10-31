@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
 {
-    public abstract class EntityFrameworkRepository<TEntity, TContext> : IRepository<TEntity> where TEntity : class, IEntity, new() where TContext : DbContext, new()
+    public abstract class EntityFrameworkRepository<TEntity, TContext> : IDisposable, IRepository<TEntity> where TEntity : class, IEntity, new() where TContext : DbContext, new()
     {
         public TContext _context { get; private set; }
 
@@ -23,11 +23,14 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
             return _context.Set<TEntity>();
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> @where)
+        public TEntity First(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().FirstOrDefault(where);
         }
-
+        public TEntity Single(Expression<Func<TEntity, bool>> @where)
+        {
+            return _context.Set<TEntity>().SingleOrDefault(where);
+        }
         public IQueryable<TEntity> Gets(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().Where(where);
@@ -82,6 +85,11 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
                 updatedObject.State = EntityState.Modified;
             }
             _context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

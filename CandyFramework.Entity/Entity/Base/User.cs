@@ -17,7 +17,5 @@ namespace CandyFramework.Entity.Entity.Base
         public virtual int Id { get; set; }
         public string UserName { get; set; }
         public DbStateEnum State { get; set; }
-
-
     }
 }

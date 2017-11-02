@@ -18,7 +18,7 @@ namespace CandyFramework.DataAccessLayer.Migrations
         protected override void Seed(CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context.CandyContext context)
         {
             var logon = new LogonUser();
-            Core.Common.ConnectionProvider.LogonUser = logon;
+            Core.Concrete.Common.ConnectionProvider.LogonUser = logon;
 
             var user = new UserEntity()
             {

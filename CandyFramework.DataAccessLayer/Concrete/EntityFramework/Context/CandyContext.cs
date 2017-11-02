@@ -11,7 +11,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
     public class CandyContext : DbContext
     {
         public CandyContext()
-            : base(Core.Common.ConnectionProvider.GetConnectionString())
+            : base(Core.Concrete.Common.ConnectionProvider.GetConnectionString())
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
@@ -34,7 +34,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
                        x.State == EntityState.Added || x.State == EntityState.Modified ||
                        x.State == EntityState.Deleted)) //Eklenen, düzenlenen ve silinen kayýtlar
             {
-                int userId = Core.Common.ConnectionProvider.LogonUser.UserId;
+                int userId =Core.Concrete.Common.ConnectionProvider.LogonUser.UserId;
                 if (!(item.Entity is IEntity)) continue; // eðer veri tabaný nesnesi deðilse geç git
 
                 //Eðer oluþturma bilgileirnin saylayan bir veri ve veri tabanýna insert iþlemi ise
@@ -67,9 +67,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             //Standart savechange iþlemine devam et.
             return base.SaveChanges();
         }
-        // Add a DbSet for each entity type that you want to include in your model. For more information 
-        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-
         public virtual DbSet<UserEntity> Users { get; set; }
     }
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{82EE6E0C-3645-4545-9995-A40A83E6DBBB}</ProjectGuid>
+    <ProjectGuid>{DE89A728-9138-4AB7-8CCB-AD0FEF91FD22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CandyFramework.Core</RootNamespace>
-    <AssemblyName>CandyFramework.Core</AssemblyName>
+    <RootNamespace>CandyFramework.Application</RootNamespace>
+    <AssemblyName>CandyFramework.Application</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\CandyFramework.Output\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,9 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CandyFramework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CandyFramework.Output\CandyFramework.Common.dll</HintPath>
+    <Reference Include="CandyFramework.BusinessLayer">
+      <HintPath>..\CandyFramework.Output\CandyFramework.BusinessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="CandyFramework.Core">
+      <HintPath>..\CandyFramework.Output\CandyFramework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CandyFramework.DataAccessLayer">
+      <HintPath>..\CandyFramework.Output\CandyFramework.DataAccessLayer.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\CandyFramework\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
@@ -53,25 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Common\ConnectionProvider.cs" />
-    <Compile Include="Concrete\Common\Constants.cs" />
-    <Compile Include="Concrete\Common\Encryption.cs" />
-    <Compile Include="Concrete\Common\Extensions.cs" />
-    <Compile Include="Concrete\IoC\Castle\CastleDependencyContainer.cs" />
-    <Compile Include="Concrete\IoC\DependencyContainer.cs" />
-    <Compile Include="Concrete\LogonUser.cs" />
-    <Compile Include="Enum\DbConEnum.cs" />
-    <Compile Include="Enum\DbStateEnum.cs" />
-    <Compile Include="Enum\DependencyScope.cs" />
-    <Compile Include="Interface\Application\IDependencyContainer.cs" />
-    <Compile Include="Interface\DataAccess\IRepository.cs" />
-    <Compile Include="Interface\Entity\ICreateEntity.cs" />
-    <Compile Include="Interface\Entity\IEntity.cs" />
-    <Compile Include="Interface\Entity\IGuildEntity.cs" />
-    <Compile Include="Interface\Entity\IKeyEntity.cs" />
-    <Compile Include="Interface\Entity\IStandartEntity.cs" />
-    <Compile Include="Interface\Entity\IState.cs" />
-    <Compile Include="Interface\Entity\IUpdateEntity.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.cs" />
+    <Compile Include="Bootstrappers\DependencyBootstrapper.cs" />
+    <Compile Include="Bootstrappers\IBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

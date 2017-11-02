@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandyFramework.MVC", "..\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandyFramework.WebApi", "..\CandyFramework.WebApi\CandyFramework.WebApi.csproj", "{4AB5FB8A-BCB4-4C16-9C6C-94249FCD114B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandyFramework.Application", "..\CandyFramework.Application\CandyFramework.Application.csproj", "{DE89A728-9138-4AB7-8CCB-AD0FEF91FD22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{4AB5FB8A-BCB4-4C16-9C6C-94249FCD114B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AB5FB8A-BCB4-4C16-9C6C-94249FCD114B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AB5FB8A-BCB4-4C16-9C6C-94249FCD114B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE89A728-9138-4AB7-8CCB-AD0FEF91FD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE89A728-9138-4AB7-8CCB-AD0FEF91FD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE89A728-9138-4AB7-8CCB-AD0FEF91FD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE89A728-9138-4AB7-8CCB-AD0FEF91FD22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

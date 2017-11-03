@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 using CandyFramework.Entity.Entity.ViewModel;
 using CandyFramework.DataAccessLayer.Interface;
 using CandyFramework.Core.Concrete.Common;
+using CandyFramework.Entity.Entity.Entity;
 
 namespace CandyFramework.BusinessLayer.Concrete
 {
-    public class UserService : IUserService
+    public class UserService : BaseService<UserEntity, UserView>, IUserService
     {
         #region - Repository -
         private readonly IUserRepository userRepository;
         #endregion
-        public UserService(IUserRepository _userRepository)
+        public UserService(IUserRepository _userRepository) : base(_userRepository)
         {
             userRepository = _userRepository;
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CandyFramework.Core.Interface.Entity
 {
-    public interface IGuildEntity: IEntity
+    public interface IGuildEntity
     {
         string Id { get; set; }
     }

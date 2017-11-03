@@ -1,11 +1,13 @@
 ﻿using CandyFramework.Core.Enum;
+using CandyFramework.Core.Interface.Entity;
 using CandyFramework.Entity.Entity.ViewModel;
 using CandyFramework.Entity.Interface.Entity;
+using CandyFramework.Entity.Interface.ViewModel;
 using System;
 
 namespace CandyFramework.Entity.Entity.Entity
 {
-    public sealed class UserEntity : Base.User, IUserEntity
+    public class UserEntity : Base.User, IUserEntity, IEntityMap<UserView>
     {
         public string Password { get; set; }
         public byte[] ProfilPhoto { get; set; }
@@ -20,11 +22,13 @@ namespace CandyFramework.Entity.Entity.Entity
         }
         public UserView Map()
         {
-            UserView tempObject = (UserView)(Base.User)this;
-            tempObject.ProfilPhotoBase64 = Convert.ToBase64String(this.ProfilPhoto);
-            tempObject.FullName = $"{this.FirstName} {this.LastName}";
+            Base.User tempObject = this;
 
-            return tempObject;
+            UserView resultObject = (UserView)tempObject;
+            resultObject.ProfilPhotoBase64 = Convert.ToBase64String(this.ProfilPhoto);
+            resultObject.FullName = $"{this.FirstName} {this.LastName}";
+
+            return (UserView)resultObject;
         }
     }
 }

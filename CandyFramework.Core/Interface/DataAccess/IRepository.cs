@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CandyFramework.Core.Interface.DataAccess
 {
-    public interface IRepository<TEntity> where TEntity : class, IEntity, new()
+    public interface IRepository<TEntity> where TEntity : class, IEntity
     {
         IQueryable<TEntity> AsQueryable();
         TEntity First(Expression<Func<TEntity, bool>> where);

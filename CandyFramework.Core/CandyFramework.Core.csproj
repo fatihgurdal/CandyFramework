@@ -64,14 +64,17 @@
     <Compile Include="Enum\DbStateEnum.cs" />
     <Compile Include="Enum\DependencyScope.cs" />
     <Compile Include="Interface\Application\IDependencyContainer.cs" />
+    <Compile Include="Interface\BusinessLayer\IBaseService.cs" />
     <Compile Include="Interface\DataAccess\IRepository.cs" />
     <Compile Include="Interface\Entity\ICreateEntity.cs" />
     <Compile Include="Interface\Entity\IEntity.cs" />
+    <Compile Include="Interface\Entity\IEntityMap.cs" />
     <Compile Include="Interface\Entity\IGuildEntity.cs" />
     <Compile Include="Interface\Entity\IKeyEntity.cs" />
     <Compile Include="Interface\Entity\IStandartEntity.cs" />
     <Compile Include="Interface\Entity\IState.cs" />
     <Compile Include="Interface\Entity\IUpdateEntity.cs" />
+    <Compile Include="Interface\Entity\IViewMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,9 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using CandyFramework.Application.Bootstrappers;
+using CandyFramework.Core.Concrete.IoC;
+using CandyFramework.MVC.Controllers;
 
 namespace CandyFramework.MVC
 {
@@ -17,7 +20,44 @@ namespace CandyFramework.MVC
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+
+            //IoC Register !!!!
+            Bootstrapper.Instance.Bootstrap(new DependencyBootstrapper());
+
+            //IoC Resolver !!!!
+            var dependencyContainer = DependencyContainer.Current;
+
+            var controllersAssembly = typeof(BaseController).Assembly;
+            foreach (var controllerType in controllersAssembly.GetTypes().Where(t => typeof(BaseController).IsAssignableFrom(t) || typeof(Controller).IsAssignableFrom(t)))
+            {
+                dependencyContainer.Register(controllerType, controllerType);
+            }
+
+            DependencyResolver.SetResolver(new UIDependecyResolver());
+        }
+    }
+    public class UIDependecyResolver : IDependencyResolver
+    {
+        private readonly IDependencyResolver _resolver = DependencyResolver.Current;
+
+        public object GetService(Type serviceType)
+        {
+            if (typeof(IController).IsAssignableFrom(serviceType))
+            {
+                return DependencyContainer.Current.Resolve(serviceType);
+            }
+            return _resolver.GetService(serviceType);
+        }
+
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            if (typeof(IController).IsAssignableFrom(serviceType))
+            {
+                return new[] { DependencyContainer.Current.Resolve(serviceType) };
+            }
+            return _resolver.GetServices(serviceType);
         }
     }
 }

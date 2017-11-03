@@ -1,4 +1,5 @@
 ﻿using CandyFramework.Core.Enum;
+using CandyFramework.Core.Interface.Entity;
 using CandyFramework.Entity.Entity.Entity;
 using CandyFramework.Entity.Interface.ViewModel;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CandyFramework.Entity.Entity.ViewModel
 {
-    public sealed class UserView : Base.User, IUserView
+    public class UserView : Base.User, IUserView, IViewMap<UserEntity>
     {
         public string ProfilPhotoBase64 { get; set; }
         public string FullName { get; set; }

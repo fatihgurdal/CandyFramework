@@ -1,0 +1,15 @@
+﻿@model CandyFramework.MVC.Models.AccountIndexModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@for (int i = 0; i < Model.Users.Count; i++)
+{
+    <p>
+        @Model.Users[i].FullName @Model.Users[i].Email
+    </p>
+}

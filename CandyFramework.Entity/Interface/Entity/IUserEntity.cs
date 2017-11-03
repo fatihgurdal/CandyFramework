@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CandyFramework.Entity.Interface.Entity
 {
-    public interface IUserEntity : IUser, ICreateEntity, IUpdateEntity
+    public interface IUserEntity : IUser, ICreateEntity, IUpdateEntity, IEntity
     {
         string Password { get; set; }
         byte[] ProfilPhoto { get; set; }

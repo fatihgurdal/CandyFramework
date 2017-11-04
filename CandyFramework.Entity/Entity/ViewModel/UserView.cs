@@ -2,6 +2,7 @@
 using CandyFramework.Core.Interface.Entity;
 using CandyFramework.Entity.Entity.Entity;
 using CandyFramework.Entity.Interface.ViewModel;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace CandyFramework.Entity.Entity.ViewModel
         }
         public UserEntity Map()
         {
-            UserEntity tempObject = (UserEntity)(Base.User)this;
-            tempObject.ProfilPhoto = Convert.FromBase64String(this.ProfilPhotoBase64);
+            //var destObject = sourceObject.Adapt<TDestination>();
+            var result = this.Adapt<UserEntity>();
+            //UserEntity tempObject = (UserEntity)(Base.User)this;
+            result.ProfilPhoto = Convert.FromBase64String(this.ProfilPhotoBase64);
 
-            return tempObject;
+            return result;
         }
     }
 }

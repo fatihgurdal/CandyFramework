@@ -3,6 +3,7 @@ using CandyFramework.Core.Interface.Entity;
 using CandyFramework.Entity.Entity.ViewModel;
 using CandyFramework.Entity.Interface.Entity;
 using CandyFramework.Entity.Interface.ViewModel;
+using Mapster;
 using System;
 
 namespace CandyFramework.Entity.Entity.Entity
@@ -22,13 +23,17 @@ namespace CandyFramework.Entity.Entity.Entity
         }
         public UserView Map()
         {
-            Base.User tempObject = this;
+            var result = this.Adapt<UserView>();
+            //Base.User tempObject = this;
+            //
+            //UserView resultObject = (UserView)tempObject;
+            if (ProfilPhoto != null && ProfilPhoto.Length > 0)
+            {
+                result.ProfilPhotoBase64 = Convert.ToBase64String(this.ProfilPhoto);
+            }
+            result.FullName = $"{this.FirstName} {this.LastName}";
 
-            UserView resultObject = (UserView)tempObject;
-            resultObject.ProfilPhotoBase64 = Convert.ToBase64String(this.ProfilPhoto);
-            resultObject.FullName = $"{this.FirstName} {this.LastName}";
-
-            return (UserView)resultObject;
+            return result;
         }
     }
 }

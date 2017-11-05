@@ -1,7 +1,9 @@
 ﻿using CandyFramework.BusinessLayer.Concrete;
 using CandyFramework.BusinessLayer.Interface;
 using CandyFramework.Core.Concrete.Common;
+using CandyFramework.Core.Concrete.Core;
 using CandyFramework.Core.Interface.Application;
+using CandyFramework.Core.Interface.Core;
 using CandyFramework.DataAccessLayer.Concrete.EntityFramework;
 using CandyFramework.DataAccessLayer.Interface;
 using System;
@@ -23,6 +25,8 @@ namespace CandyFramework.Application.Bootstrappers
         /// <param name="dependencyContainer"></param>
         public virtual void Bootstrap(IDependencyContainer dependencyContainer)
         {
+            dependencyContainer.RegisterTransient<ILogger, Logger>();
+
             //User Table için dependency injection
             dependencyContainer.RegisterTransient<IUserService, UserService>();
             dependencyContainer.RegisterTransient<IUserRepository, UserEfRepository>();

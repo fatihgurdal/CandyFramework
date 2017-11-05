@@ -58,9 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\EntityFramework\Base\EntityFrameworkRepository.cs" />
+    <Compile Include="Concrete\EntityFramework\CandyLogEfRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context\CandyContext.cs" />
     <Compile Include="Concrete\EntityFramework\Mapping\UserMap.cs" />
     <Compile Include="Concrete\EntityFramework\UserEfRepository.cs" />
+    <Compile Include="Interface\ICandyRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Migrations\201711031054221_UserCreate_mig1.cs" />
     <Compile Include="Migrations\201711031054221_UserCreate_mig1.Designer.cs">

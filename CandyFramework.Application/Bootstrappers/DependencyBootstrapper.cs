@@ -25,7 +25,7 @@ namespace CandyFramework.Application.Bootstrappers
         /// <param name="dependencyContainer"></param>
         public virtual void Bootstrap(IDependencyContainer dependencyContainer)
         {
-            dependencyContainer.RegisterTransient<ILogger, Logger>();
+            //dependencyContainer.RegisterTransient<ILogger, Logger>();
 
             //User Table için dependency injection
             dependencyContainer.RegisterTransient<IUserService, UserService>();

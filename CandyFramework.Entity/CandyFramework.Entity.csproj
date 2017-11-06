@@ -49,16 +49,22 @@
   <ItemGroup>
     <Compile Include="Entity\Base\CandyLog.cs" />
     <Compile Include="Entity\Base\User.cs" />
+    <Compile Include="Entity\Base\UserGroup.cs" />
     <Compile Include="Entity\Entity\CandyLogEntity.cs" />
     <Compile Include="Entity\Entity\UserEntity.cs" />
+    <Compile Include="Entity\Entity\UserGroupEntity.cs" />
     <Compile Include="Entity\ViewModel\CandyLogView.cs" />
+    <Compile Include="Entity\ViewModel\UserGroupView.cs" />
     <Compile Include="Entity\ViewModel\UserView.cs" />
     <Compile Include="Entity\ViewModel\VirtualViewModel\UserRegisterView.cs" />
     <Compile Include="Interface\Base\ICandyLog.cs" />
     <Compile Include="Interface\Base\IUser.cs" />
+    <Compile Include="Interface\Base\IUserGroup.cs" />
     <Compile Include="Interface\Entity\ICandyLogEntity.cs" />
     <Compile Include="Interface\Entity\IUserEntity.cs" />
+    <Compile Include="Interface\Entity\IUserGroupEntity.cs" />
     <Compile Include="Interface\ViewModel\ICandyLogView.cs" />
+    <Compile Include="Interface\ViewModel\IUserGroupView.cs" />
     <Compile Include="Interface\ViewModel\IUserView.cs" />
     <Compile Include="Interface\ViewModel\VirtualViewModel\IUserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

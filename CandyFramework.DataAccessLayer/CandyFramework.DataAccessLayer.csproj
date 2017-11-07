@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201711031054221_UserCreate_mig1.Designer.cs">
       <DependentUpon>201711031054221_UserCreate_mig1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711070704434_CreateUserGroup_mig2.cs" />
+    <Compile Include="Migrations\201711070704434_CreateUserGroup_mig2.Designer.cs">
+      <DependentUpon>201711070704434_CreateUserGroup_mig2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711031054221_UserCreate_mig1.resx">
       <DependentUpon>201711031054221_UserCreate_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711070704434_CreateUserGroup_mig2.resx">
+      <DependentUpon>201711070704434_CreateUserGroup_mig2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

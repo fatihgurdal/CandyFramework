@@ -14,5 +14,6 @@ namespace CandyFramework.Entity.Interface.Base
         string Email { get; set; }
         DateTime Birtdate { get; set; }
         string UserName { get; set; }
+        int UserGroupId { get; set; }
     }
 }

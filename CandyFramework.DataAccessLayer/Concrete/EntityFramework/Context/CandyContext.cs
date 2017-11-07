@@ -24,6 +24,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.UserMapping();
+            modelBuilder.UserGroupMapping();
             base.OnModelCreating(modelBuilder);
         }
         public override int SaveChanges()
@@ -68,6 +69,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             return base.SaveChanges();
         }
         public virtual DbSet<UserEntity> Users { get; set; }
+        public virtual DbSet<UserGroupEntity> UserGroups { get; set; }
     }
 
 }

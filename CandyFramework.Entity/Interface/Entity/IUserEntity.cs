@@ -1,4 +1,5 @@
 ﻿using CandyFramework.Core.Interface.Entity;
+using CandyFramework.Entity.Entity.Entity;
 using CandyFramework.Entity.Interface.Base;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace CandyFramework.Entity.Interface.Entity
     {
         string Password { get; set; }
         byte[] ProfilPhoto { get; set; }
+        UserGroupEntity UserGroup { get; set; }
     }
 }

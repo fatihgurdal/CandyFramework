@@ -20,6 +20,10 @@ namespace CandyFramework.DataAccessLayer.Migrations
             var logon = new LogonUser();
             Core.Concrete.Common.ConnectionProvider.LogonUser = logon;
 
+            var userGroup = new UserGroupEntity()
+            {
+                Name = "Admin"
+            };
             var user = new UserEntity()
             {
                 Birtdate = new DateTime(1992, 8, 30),
@@ -27,7 +31,8 @@ namespace CandyFramework.DataAccessLayer.Migrations
                 Email = "f.gurdal@hotmail.com.tr",
                 LastName = "GÜRDAL",
                 Password = "0",
-                UserName = "fgurdal"
+                UserName = "fgurdal",
+                UserGroup = userGroup
             };
 
             context.Users.Add(user);

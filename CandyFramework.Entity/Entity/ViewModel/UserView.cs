@@ -15,6 +15,7 @@ namespace CandyFramework.Entity.Entity.ViewModel
     {
         public string ProfilPhotoBase64 { get; set; }
         public string FullName { get; set; }
+        public UserGroupView UserGroup { get; set; }
 
         public UserView()
         {
@@ -27,6 +28,7 @@ namespace CandyFramework.Entity.Entity.ViewModel
             //UserEntity tempObject = (UserEntity)(Base.User)this;
             result.ProfilPhoto = Convert.FromBase64String(this.ProfilPhotoBase64);
 
+            result.UserGroup = this.UserGroup?.Adapt<UserGroupEntity>();
             return result;
         }
     }

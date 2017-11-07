@@ -1,4 +1,5 @@
-﻿using CandyFramework.Entity.Interface.Base;
+﻿using CandyFramework.Entity.Entity.ViewModel;
+using CandyFramework.Entity.Interface.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace CandyFramework.Entity.Interface.ViewModel
     {
         string ProfilPhotoBase64 { get; set; }
         string FullName { get; set; }
+        UserGroupView UserGroup { get; set; }
     }
 }

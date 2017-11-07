@@ -16,6 +16,7 @@ namespace CandyFramework.Entity.Entity.Entity
         public DateTime CreateDate { get; set; }
         public string UpdateUser { get; set; }
         public DateTime UpdateDate { get; set; }
+        public UserGroupEntity UserGroup { get; set; }
 
         public UserEntity()
         {
@@ -32,6 +33,8 @@ namespace CandyFramework.Entity.Entity.Entity
                 result.ProfilPhotoBase64 = Convert.ToBase64String(this.ProfilPhoto);
             }
             result.FullName = $"{this.FirstName} {this.LastName}";
+
+            result.UserGroup = this.UserGroup?.Adapt<UserGroupView>();
 
             return result;
         }

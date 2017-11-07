@@ -34,6 +34,8 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Mapping
 
             config.Property(p => p.UserName).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_USERS_1", 1) { IsUnique = true }));
             config.Property(p => p.State).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_USERS_1", 2) { IsUnique = true }));
+
+            config.HasRequired(t => t.UserGroup).WithMany(t => t.Users).HasForeignKey(d => d.UserGroupId).WillCascadeOnDelete(false);
         }
     }
 }

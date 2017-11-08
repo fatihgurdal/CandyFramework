@@ -64,7 +64,7 @@
     <Compile Include="Concrete\IoC\Castle\CastleDependencyContainer.cs" />
     <Compile Include="Concrete\IoC\DependencyContainer.cs" />
     <Compile Include="Concrete\LogonUser.cs" />
-    <Compile Include="Enum\CAndyLogType.cs" />
+    <Compile Include="Enum\CandyLogType.cs" />
     <Compile Include="Enum\DbConEnum.cs" />
     <Compile Include="Enum\DbStateEnum.cs" />
     <Compile Include="Enum\DependencyScope.cs" />

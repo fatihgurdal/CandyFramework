@@ -25,17 +25,19 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Mapping
             config.Property(x => x.Email).HasColumnName("EMAIL").HasMaxLength(100).IsRequired();
             config.Property(x => x.Password).HasColumnName("PASSWORD").HasMaxLength(30).IsRequired();
 
+            config.Property(x => x.CreateDate).HasColumnOrder(100).HasColumnName("CREATE_DATE").IsRequired();
+            config.Property(x => x.UpdateDate).HasColumnOrder(101).HasColumnName("UPDATE_DATE").IsRequired();
+            config.Property(x => x.CreateUser).HasColumnOrder(102).HasColumnName("CREATE_USER").HasMaxLength(30).IsRequired();
+            config.Property(x => x.UpdateUser).HasColumnOrder(103).HasColumnName("UPDATE_USER").HasMaxLength(30).IsRequired();
             config.Property(x => x.State).HasColumnName("STATE").IsRequired();
-            config.Property(x => x.CreateDate).HasColumnName("CREATE_DATE").IsRequired();
-            config.Property(x => x.UpdateDate).HasColumnName("UPDATE_DATE").IsRequired();
-            config.Property(x => x.CreateUser).HasColumnName("CREATE_USER").HasMaxLength(30).IsRequired();
-            config.Property(x => x.UpdateUser).HasColumnName("UPDATE_USER").HasMaxLength(30).IsRequired();
             config.Property(x => x.UserName).HasColumnName("USERNAME").HasMaxLength(30).IsRequired();
 
             config.Property(p => p.UserName).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_USERS_1", 1) { IsUnique = true }));
             config.Property(p => p.State).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_USERS_1", 2) { IsUnique = true }));
 
             config.HasRequired(t => t.UserGroup).WithMany(t => t.Users).HasForeignKey(d => d.UserGroupId).WillCascadeOnDelete(false);
+
+            config.HasRequired(t => t.UserGroup).WithMany().HasForeignKey(d => d.UserGroupId);
         }
     }
 }

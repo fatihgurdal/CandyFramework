@@ -11,5 +11,9 @@
 {
     <p>
         @Model.Users[i].FullName @Model.Users[i].Email
+        @if (Model.Users[i].UserGroup != null)
+        {
+            @Model.Users[i].UserGroup.Name
+        }
     </p>
 }

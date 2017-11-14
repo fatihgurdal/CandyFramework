@@ -46,25 +46,25 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
             return _context.Set<TEntity>().Any(where);
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);
             _context.SaveChanges();
         }
 
-        public void Delete(IEnumerable<TEntity> entities)
+        public virtual void Delete(IEnumerable<TEntity> entities)
         {
             _context.Set<TEntity>().RemoveRange(entities);
             _context.SaveChanges();
         }
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
         }
 
-        public void Add(List<TEntity> entities)
+        public virtual void Add(List<TEntity> entities)
         {
             _context.Set<TEntity>().AddRange(entities);
             _context.SaveChanges();

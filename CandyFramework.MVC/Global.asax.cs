@@ -36,6 +36,8 @@ namespace CandyFramework.MVC
             }
 
             DependencyResolver.SetResolver(new UIDependecyResolver());
+            var settingServis = (BusinessLayer.Interface.ISettingService)dependencyContainer.Resolve(typeof(BusinessLayer.Interface.ISettingService));
+            settingServis.LoadSettings();
         }
     }
     public class UIDependecyResolver : IDependencyResolver

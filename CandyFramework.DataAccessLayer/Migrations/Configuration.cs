@@ -53,12 +53,27 @@ namespace CandyFramework.DataAccessLayer.Migrations
             context.Settings.Add(new SettingEntity()
             {
                 KeyName = "MailSetting",
-                Value = "noreply@site.com|password|smtp.google.com|port"
+                Value = "noreply@site.com|password|smtp.google.com|port|Candy Framework"
             });
             context.Settings.Add(new SettingEntity()
             {
                 KeyName = "SiteName",
                 Value = "Candy Framework"
+            });
+            context.Settings.Add(new SettingEntity()
+            {
+                KeyName = "EMailLogToAddress",
+                Value = "f.gurdal@hotmail.com.tr"
+            });
+            context.Settings.Add(new SettingEntity()
+            {
+                KeyName = "EMailLogCCAddress",
+                Value = "f.gurdal@hotmail.com.tr"
+            });
+            context.Settings.Add(new SettingEntity()
+            {
+                KeyName = "LogClass",
+                Value = "MailLogger"
             });
             context.SaveChanges();
             #endregion

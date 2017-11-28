@@ -10,5 +10,6 @@ namespace CandyFramework.BusinessLayer.Interface
 {
     public interface ISettingService : IBaseService<SettingView>
     {
+        void LoadSettings();
     }
 }

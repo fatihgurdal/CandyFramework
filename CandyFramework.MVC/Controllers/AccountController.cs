@@ -8,9 +8,11 @@ using CandyFramework.Entity.Entity.ViewModel;
 using CandyFramework.MVC.Models;
 using CandyFramework.Core.Interface.Core;
 using CandyFramework.Core.Concrete.Core;
+using CandyFramework.MVC.Attiribute;
 
 namespace CandyFramework.MVC.Controllers
 {
+    [ErrorFilterAttiribute]
     public class AccountController : BaseController
     {
         private readonly IUserService _userService;
@@ -27,6 +29,7 @@ namespace CandyFramework.MVC.Controllers
             model.Users = users;
             //ILogger logger = new Logger();
             //logger.WriteLog("başlık", "içerik");
+            throw new Exception("da da da fatih mail loglama denemesi");
             return View(model);
         }
     }

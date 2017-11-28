@@ -57,6 +57,7 @@
     <Compile Include="Concrete\Common\Constants.cs" />
     <Compile Include="Concrete\Common\Encryption.cs" />
     <Compile Include="Concrete\Common\Extensions.cs" />
+    <Compile Include="Concrete\Common\Setting.cs" />
     <Compile Include="Concrete\Core\CanyLogManager.cs" />
     <Compile Include="Concrete\Core\DbLogger.cs" />
     <Compile Include="Concrete\Core\FileLogger.cs" />

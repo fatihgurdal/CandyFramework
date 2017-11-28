@@ -1,5 +1,6 @@
 namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
 {
+    using CandyFramework.Core.Concrete;
     using CandyFramework.Core.Enum;
     using CandyFramework.Core.Interface.Entity;
     using CandyFramework.DataAccessLayer.Concrete.EntityFramework.Mapping;
@@ -13,8 +14,8 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
         public CandyContext()
             : base(Core.Concrete.Common.ConnectionProvider.GetConnectionString())
         {
-            Configuration.LazyLoadingEnabled = true;
-            Configuration.ProxyCreationEnabled = true;
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
 
             Database.SetInitializer(new CreateDatabaseIfNotExists<CandyContext>());
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CandyContext, Migrations.Configuration>());
@@ -27,6 +28,8 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             modelBuilder.UserGroupMapping();
             modelBuilder.SettingMapping();
             base.OnModelCreating(modelBuilder);
+
+            
         }
         public override int SaveChanges()
         {

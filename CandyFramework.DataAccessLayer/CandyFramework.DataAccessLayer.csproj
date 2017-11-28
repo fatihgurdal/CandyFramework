@@ -70,12 +70,21 @@
     <Compile Include="Interface\ISettingRepository.cs" />
     <Compile Include="Interface\IUserGroupRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
+    <Compile Include="Migrations\201711271905525_CreateMigration_27112017.cs" />
+    <Compile Include="Migrations\201711271905525_CreateMigration_27112017.Designer.cs">
+      <DependentUpon>201711271905525_CreateMigration_27112017.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711271905525_CreateMigration_27112017.resx">
+      <DependentUpon>201711271905525_CreateMigration_27112017.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

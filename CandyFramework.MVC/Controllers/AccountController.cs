@@ -22,6 +22,7 @@ namespace CandyFramework.MVC.Controllers
         public ActionResult Index()
         {
             AccountIndexModel model = new AccountIndexModel();
+            System.Threading.Thread.Sleep(3000);
             List<UserView> users = _userService.All();
             model.Users = users;
             //ILogger logger = new Logger();

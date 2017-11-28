@@ -16,14 +16,24 @@ namespace CandyFramework.Entity.Entity.Entity
         public DateTime CreateDate { get; set; }
         public string UpdateUser { get; set; }
         public DateTime UpdateDate { get; set; }
-        public UserGroupEntity UserGroup { get; set; }
+        public virtual UserGroupEntity UserGroup { get; set; }
+        public override int UserGroupId { get; set; }
 
         public UserEntity()
         {
 
         }
+        public UserEntity(UserEntity entity, UserGroupEntity UserGroup)
+        {
+            entity.Adapt<UserEntity, UserEntity>(this);
+            this.UserGroup = UserGroup;
+        }
         public UserView Map()
         {
+            if (this.UserGroup!=null)
+            {
+                this.UserGroup.Users = null;
+            }
             var result = this.Adapt<UserView>();
             //Base.User tempObject = this;
             //
@@ -34,7 +44,7 @@ namespace CandyFramework.Entity.Entity.Entity
             }
             result.FullName = $"{this.FirstName} {this.LastName}";
 
-            result.UserGroup = this.UserGroup?.Adapt<UserGroupView>();
+            //result.UserGroup = this.UserGroup?.Adapt<UserGroupView>();
 
             return result;
         }

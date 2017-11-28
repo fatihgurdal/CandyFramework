@@ -11,8 +11,8 @@ namespace CandyFramework.DataAccessLayer.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             
         }
 
@@ -20,7 +20,7 @@ namespace CandyFramework.DataAccessLayer.Migrations
         {
             var logon = new LogonUser();
             Core.Concrete.Common.ConnectionProvider.LogonUser = logon;
-          
+
 
             #region - User -
             var userGroup = new UserGroupEntity()

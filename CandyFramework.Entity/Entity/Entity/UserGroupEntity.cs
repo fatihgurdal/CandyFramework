@@ -16,7 +16,7 @@ namespace CandyFramework.Entity.Entity.Entity
         public string UpdateUser { get; set; }
         public DateTime UpdateDate { get; set; }
 
-        public ICollection<UserEntity> Users { get; set; } = new HashSet<UserEntity>();
+        public virtual ICollection<UserEntity> Users { get; set; } = new HashSet<UserEntity>();
 
         public UserGroupEntity()
         {

@@ -16,6 +16,10 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework
         {
 
         }
+        public override IQueryable<UserEntity> AsQueryable()
+        {
+            return base._context.Users.Include("UserGroup");
+        }
         /// <summary>
         /// Kullanıcı adı ve şifre ile kullanıcı bulma
         /// </summary>

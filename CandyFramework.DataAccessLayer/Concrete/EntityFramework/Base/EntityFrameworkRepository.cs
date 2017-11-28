@@ -18,20 +18,20 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
         {
             _context = new TContext();
         }
-        public IQueryable<TEntity> AsQueryable()
+        public virtual IQueryable<TEntity> AsQueryable()
         {
             return _context.Set<TEntity>();
         }
 
-        public TEntity First(Expression<Func<TEntity, bool>> @where)
+        public virtual TEntity First(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().FirstOrDefault(where);
         }
-        public TEntity Single(Expression<Func<TEntity, bool>> @where)
+        public virtual TEntity Single(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().SingleOrDefault(where);
         }
-        public IQueryable<TEntity> Gets(Expression<Func<TEntity, bool>> @where)
+        public virtual IQueryable<TEntity> Gets(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().Where(where);
         }

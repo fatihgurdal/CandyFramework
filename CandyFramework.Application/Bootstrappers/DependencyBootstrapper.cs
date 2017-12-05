@@ -30,8 +30,12 @@ namespace CandyFramework.Application.Bootstrappers
             //User Table için dependency injection
             dependencyContainer.RegisterTransient<IUserService, UserService>();
             dependencyContainer.RegisterTransient<IUserRepository, UserEfRepository>();
+
             dependencyContainer.RegisterTransient<ISettingService, SettingService>();
             dependencyContainer.RegisterTransient<ISettingRepository, SettingEfRepository>();
+
+            dependencyContainer.RegisterTransient<IUserGroupService, UserGroupService>();
+            dependencyContainer.RegisterTransient<IUserGroupRepository, UserGroupEfRepository>();
 
 
         }

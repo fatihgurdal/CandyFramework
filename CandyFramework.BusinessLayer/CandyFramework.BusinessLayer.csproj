@@ -61,8 +61,10 @@
   <ItemGroup>
     <Compile Include="Concrete\BaseService.cs" />
     <Compile Include="Concrete\SettingService.cs" />
+    <Compile Include="Concrete\UserGroupService.cs" />
     <Compile Include="Concrete\UserService.cs" />
     <Compile Include="Interface\ISettingService.cs" />
+    <Compile Include="Interface\IUserGroupService.cs" />
     <Compile Include="Interface\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

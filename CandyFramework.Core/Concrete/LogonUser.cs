@@ -10,6 +10,7 @@ namespace CandyFramework.Core.Concrete
     {
         public int UserId { get; set; }
         public string FullName { get; set; }
+        public string UserName { get; set; }
         public string Lang { get; set; }
         public LogonUser()
         {
@@ -20,6 +21,7 @@ namespace CandyFramework.Core.Concrete
             if (autoUserName=="admin")
             {
                 UserId = 0;
+                UserName = autoUserName;
                 FullName = "Framework User";
                 Lang = "tr-TR";
             }

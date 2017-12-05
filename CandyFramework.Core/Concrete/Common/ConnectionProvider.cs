@@ -48,6 +48,12 @@ namespace CandyFramework.Core.Concrete.Common
 
             }
         }
-
+        public static bool IsLogon
+        {
+            get
+            {
+                return _threadlocal.Value != null;
+            }
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace CandyFramework.MVC.Controllers
             model.Users = users;
             //ILogger logger = new Logger();
             //logger.WriteLog("başlık", "içerik");
-            throw new Exception("da da da fatih mail loglama denemesi");
+            throw new Exception("Loglama mekanizması denemesi");
             return View(model);
         }
     }

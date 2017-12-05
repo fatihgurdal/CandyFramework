@@ -7,13 +7,13 @@ namespace CandyFramework.DataAccessLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CreateMigration_27112017 : IMigrationMetadata
+    public sealed partial class FirstMigration_v1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateMigration_27112017));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstMigration_v1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711271905525_CreateMigration_27112017"; }
+            get { return "201712051219451_FirstMigration_v1"; }
         }
         
         string IMigrationMetadata.Source

@@ -16,7 +16,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
-
+            
             Database.SetInitializer(new CreateDatabaseIfNotExists<CandyContext>());
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CandyContext, Migrations.Configuration>());
 
@@ -27,6 +27,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             modelBuilder.UserMapping();
             modelBuilder.UserGroupMapping();
             modelBuilder.SettingMapping();
+            modelBuilder.CandyLogMapping();
             base.OnModelCreating(modelBuilder);
 
             
@@ -75,6 +76,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
         public virtual DbSet<UserEntity> Users { get; set; }
         public virtual DbSet<UserGroupEntity> UserGroups { get; set; }
         public virtual DbSet<SettingEntity> Settings { get; set; }
+        public virtual DbSet<CandyLogEntity> Logs { get; set; }
     }
 
 }

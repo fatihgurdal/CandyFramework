@@ -3,10 +3,25 @@ namespace CandyFramework.DataAccessLayer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreateMigration_27112017 : DbMigration
+    public partial class FirstMigration_v1 : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.LOGS",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        TYPE = c.Int(nullable: false),
+                        LEVEL = c.Int(nullable: false),
+                        ERROR_MESSAGE = c.String(nullable: false),
+                        ERROR_DETAIL = c.String(nullable: false),
+                        INNER_EXCEPTION = c.String(nullable: false),
+                        CREATE_USER = c.String(nullable: false),
+                        CREATE_DATE = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
             CreateTable(
                 "dbo.SETTINGS",
                 c => new
@@ -73,6 +88,7 @@ namespace CandyFramework.DataAccessLayer.Migrations
             DropTable("dbo.USERS");
             DropTable("dbo.USER_GROUP");
             DropTable("dbo.SETTINGS");
+            DropTable("dbo.LOGS");
         }
     }
 }

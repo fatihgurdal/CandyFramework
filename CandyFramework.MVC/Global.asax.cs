@@ -21,7 +21,7 @@ namespace CandyFramework.MVC
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
+            var path = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
 
             //IoC Register !!!!
             Bootstrapper.Instance.Bootstrap(new DependencyBootstrapper());

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandyFramework.Setup", "CandyFramework.Setup\CandyFramework.Setup.csproj", "{98327303-7CF2-4012-95A9-2D1343A0CCF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandyFramework.ConfigurationEditor", "CandyFramework.ConfigurationEditor\CandyFramework.ConfigurationEditor.csproj", "{CD69088A-DF21-4841-B85E-68C992D99E0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{98327303-7CF2-4012-95A9-2D1343A0CCF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98327303-7CF2-4012-95A9-2D1343A0CCF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98327303-7CF2-4012-95A9-2D1343A0CCF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD69088A-DF21-4841-B85E-68C992D99E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD69088A-DF21-4841-B85E-68C992D99E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD69088A-DF21-4841-B85E-68C992D99E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD69088A-DF21-4841-B85E-68C992D99E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

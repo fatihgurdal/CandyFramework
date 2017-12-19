@@ -11,17 +11,11 @@ using System.Windows.Forms;
 
 namespace CandyFramework.ConfigurationEditor
 {
-    public partial class MainForm : MetroForm
+    public partial class EditForm : MetroForm
     {
-        public MainForm()
+        public EditForm()
         {
             InitializeComponent();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            EditForm ef = new EditForm();
-            ef.ShowDialog();
         }
     }
 }

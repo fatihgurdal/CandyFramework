@@ -1,16 +1,9 @@
 ﻿using CandyFramework.BusinessLayer.Concrete;
 using CandyFramework.BusinessLayer.Interface;
 using CandyFramework.Core.Concrete.Common;
-using CandyFramework.Core.Concrete.Core;
 using CandyFramework.Core.Interface.Application;
-using CandyFramework.Core.Interface.Core;
 using CandyFramework.DataAccessLayer.Concrete.EntityFramework;
 using CandyFramework.DataAccessLayer.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CandyFramework.Application.Bootstrappers
 {
@@ -25,19 +18,17 @@ namespace CandyFramework.Application.Bootstrappers
         /// <param name="dependencyContainer"></param>
         public virtual void Bootstrap(IDependencyContainer dependencyContainer)
         {
-            //dependencyContainer.RegisterTransient<ILogger, Logger>();
-
-            //User Table için dependency injection
+            //User Table for dependency injection
             dependencyContainer.RegisterTransient<IUserService, UserService>();
             dependencyContainer.RegisterTransient<IUserRepository, UserEfRepository>();
 
+            //Setting Table for dependency injection
             dependencyContainer.RegisterTransient<ISettingService, SettingService>();
             dependencyContainer.RegisterTransient<ISettingRepository, SettingEfRepository>();
 
+            //UserGroup Table for dependency injection
             dependencyContainer.RegisterTransient<IUserGroupService, UserGroupService>();
             dependencyContainer.RegisterTransient<IUserGroupRepository, UserGroupEfRepository>();
-
-
         }
     }
 }

@@ -16,6 +16,10 @@ namespace CandyFramework.MVC.Attiribute
             var logger = Core.Concrete.Core.CanyLogManager.CreateLogger();
             logger.WriteLog(ex.Message, ex);
 
+
+            filterContext.ExceptionHandled = true;
+            filterContext.Controller.TempData["ErrorFilterException"] = filterContext.Exception;
+            filterContext.Result = new RedirectResult("~/Error/Index");
         }
     }
 }

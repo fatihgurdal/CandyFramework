@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\github\CandyFramework\CandyFramework\ExternalSource\Setup\Publish\</PublishUrl>
+    <PublishUrl>C:\github\CandyFramework\CandyFramework\ExternalSource\Setup\Publish\CandyFramework.Setup\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>

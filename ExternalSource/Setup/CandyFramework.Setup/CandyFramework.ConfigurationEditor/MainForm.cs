@@ -16,6 +16,7 @@ namespace CandyFramework.ConfigurationEditor
         public MainForm()
         {
             InitializeComponent();
+            this.Icon = ConfigurationEditor.Properties.Resources.Candy1;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -1,9 +1,4 @@
 ﻿using CandyFramework.BusinessLayer.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CandyFramework.Entity.Entity.ViewModel;
 using CandyFramework.DataAccessLayer.Interface;
 using CandyFramework.Core.Concrete.Common;

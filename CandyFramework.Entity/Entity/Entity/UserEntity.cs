@@ -30,21 +30,17 @@ namespace CandyFramework.Entity.Entity.Entity
         }
         public UserView Map()
         {
-            if (this.UserGroup!=null)
-            {
+            if (this.UserGroup != null)
                 this.UserGroup.Users = null;
-            }
+            //Entity to View Model
             var result = this.Adapt<UserView>();
-            //Base.User tempObject = this;
-            //
-            //UserView resultObject = (UserView)tempObject;
+            //byte array to Base64String
             if (ProfilPhoto != null && ProfilPhoto.Length > 0)
             {
                 result.ProfilPhotoBase64 = Convert.ToBase64String(this.ProfilPhoto);
             }
+            //FirstName and LastName to Full Name
             result.FullName = $"{this.FirstName} {this.LastName}";
-
-            //result.UserGroup = this.UserGroup?.Adapt<UserGroupView>();
 
             return result;
         }

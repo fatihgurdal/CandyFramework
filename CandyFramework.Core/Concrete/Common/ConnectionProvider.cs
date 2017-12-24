@@ -21,9 +21,9 @@ namespace CandyFramework.Core.Concrete.Common
                 case DbConEnum.WebConfig:
                     return "name=CandyContext";
                 case DbConEnum.Regedit:
-                    throw new NotImplementedException("DbConEnum.Regedit ayarlanmadı.");
+                    return CandyFramework.Common.Providers.DataConnectionProvider.GetConnectionString();
                 case DbConEnum.ReadFile:
-                    throw new NotImplementedException("DbConEnum.Regedit ayarlanmadı.");
+                    return CandyFramework.Common.Providers.DataConnectionProvider.GetConnectionString();
                 default:
                     throw new NotSupportedException("Connection string okuma tipi tanımsız.");
             }

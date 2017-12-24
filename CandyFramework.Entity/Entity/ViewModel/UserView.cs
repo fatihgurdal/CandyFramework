@@ -23,12 +23,11 @@ namespace CandyFramework.Entity.Entity.ViewModel
         }
         public UserEntity Map()
         {
-            //var destObject = sourceObject.Adapt<TDestination>();
+            //View Model to Entity
             var result = this.Adapt<UserEntity>();
-            //UserEntity tempObject = (UserEntity)(Base.User)this;
+            //Base64String to Byte Array
             result.ProfilPhoto = Convert.FromBase64String(this.ProfilPhotoBase64);
 
-            result.UserGroup = this.UserGroup?.Adapt<UserGroupEntity>();
             return result;
         }
     }

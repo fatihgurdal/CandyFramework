@@ -31,6 +31,13 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework
             return base.First(x => (x.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(userName, StringComparison.InvariantCultureIgnoreCase)) && x.Password == password);
         }
 
+        public List<UserEntity> SearhUsers(string searchText)
+        {
+            return base.Gets(x => x.FirstName.Contains(searchText) || x.LastName.Contains(searchText) ||
+                        x.UserName.Contains(searchText) || x.Email.Contains(searchText))
+                .ToList();
+        }
+
         public bool UserNamePasswordControl(string userName, string password)
         {
             return base.Any(x => (x.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(userName, StringComparison.InvariantCultureIgnoreCase)) && x.Password == password);

@@ -22,7 +22,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
         {
             return _context.Set<TEntity>();
         }
-
         public virtual TEntity First(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().FirstOrDefault(where);
@@ -35,48 +34,40 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
         {
             return _context.Set<TEntity>().Where(where);
         }
-
         public int Count(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().Count(where);
         }
-
         public bool Any(Expression<Func<TEntity, bool>> @where)
         {
             return _context.Set<TEntity>().Any(where);
         }
-
         public virtual void Delete(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);
             _context.SaveChanges();
         }
-
         public virtual void Delete(IEnumerable<TEntity> entities)
         {
             _context.Set<TEntity>().RemoveRange(entities);
             _context.SaveChanges();
         }
-
         public virtual void Add(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
         }
-
         public virtual void Add(List<TEntity> entities)
         {
             _context.Set<TEntity>().AddRange(entities);
             _context.SaveChanges();
         }
-
         public void Update(TEntity entity)
         {
             var updatedObject = _context.Entry(entity);
             updatedObject.State = EntityState.Modified;
             _context.SaveChanges();
         }
-
         public void Update(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
@@ -86,7 +77,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base
             }
             _context.SaveChanges();
         }
-
         public void Dispose()
         {
             _context.Dispose();

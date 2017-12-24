@@ -15,7 +15,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Mapping
         internal static void UserMapping(this DbModelBuilder builder)
         {
             var config = builder.Entity<UserEntity>();
-
             config.ToTable("USERS");
             config.HasKey(x => x.Id);
 
@@ -39,8 +38,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Mapping
             config.Property(p => p.State).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_USERS_1", 2) { IsUnique = true }));
 
             config.HasRequired(t => t.UserGroup).WithMany(t => t.Users).HasForeignKey(d => d.UserGroupId);
-            //config.HasMany(r=>r.UserGroup).WithMany(r1=>r1.Users)
-            //config.HasRequired(t => t.UserGroup).WithMany().HasForeignKey(d => d.UserGroupId);
         }
     }
 }

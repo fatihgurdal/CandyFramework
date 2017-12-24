@@ -18,8 +18,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             Configuration.ProxyCreationEnabled = false;
             
             Database.SetInitializer(new CreateDatabaseIfNotExists<CandyContext>());
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CandyContext, Migrations.Configuration>());
-
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,17 +26,14 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             modelBuilder.UserGroupMapping();
             modelBuilder.SettingMapping();
             modelBuilder.CandyLogMapping();
-            base.OnModelCreating(modelBuilder);
-
-            
+            base.OnModelCreating(modelBuilder);           
         }
+
         public override int SaveChanges()
         {
             foreach (var item in ChangeTracker.Entries()
-               .Where(
-                   x =>
-                       x.State == EntityState.Added || x.State == EntityState.Modified ||
-                       x.State == EntityState.Deleted)) //Eklenen, düzenlenen ve silinen kayýtlar
+               .Where( x => x.State == EntityState.Added || x.State == EntityState.Modified || x.State == EntityState.Deleted)) 
+               //Eklenen, düzenlenen ve silinen kayýtlar
             {
                 int userId =Core.Concrete.Common.ConnectionProvider.LogonUser.UserId;
                 if (!(item.Entity is IEntity)) continue; // eðer veri tabaný nesnesi deðilse geç git
@@ -49,7 +44,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
                     ((ICreateEntity)item.Entity).CreateUser = userId.ToString();
                     ((ICreateEntity)item.Entity).CreateDate = DateTime.UtcNow;
                 }
-
                 //Eðer güncelleme bilgileirnin saylayan bir veri ve veri tabanýna update iþlemi ise
                 if (item.Entity is IUpdateEntity)
                 {
@@ -59,7 +53,6 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
                         ((IUpdateEntity)item.Entity).UpdateDate = DateTime.UtcNow;
                     }
                 }
-
                 //Eðer silinemez sadece state olarak saklanan bir veri ise ve silme iþlemi olarak geldiysa durumunu güncellemeye çek
                 if (item.Entity is IState && item.State == EntityState.Deleted)
                 {
@@ -73,6 +66,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context
             //Standart savechange iþlemine devam et.
             return base.SaveChanges();
         }
+
         public virtual DbSet<UserEntity> Users { get; set; }
         public virtual DbSet<UserGroupEntity> UserGroups { get; set; }
         public virtual DbSet<SettingEntity> Settings { get; set; }

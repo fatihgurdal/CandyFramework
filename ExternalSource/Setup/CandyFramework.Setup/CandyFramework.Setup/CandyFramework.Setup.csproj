@@ -118,7 +118,7 @@
     <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework Item Entity.zip" />
     <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework MVC.zip" />
     <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework WebApi.zip" />
-    <None Include="CopyFolder\Templates\ProjectTemplates\CandyFramework Project.zip" />
+    <None Include="CopyFolder\Templates\ProjectTemplates\CandyFramework\CandyFramework Project.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

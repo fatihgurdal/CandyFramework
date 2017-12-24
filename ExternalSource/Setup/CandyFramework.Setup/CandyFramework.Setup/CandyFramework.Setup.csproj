@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Candy.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -74,7 +77,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework BusinessLayer.zip" />
+    <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework EF DataAccess.zip" />
+    <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework Item Entity.zip" />
+    <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework MVC.zip" />
+    <None Include="CopyFolder\Templates\ItemTemplates\CandyFramework\CandyFramework WebApi.zip" />
+    <None Include="CopyFolder\Templates\ProjectTemplates\CandyFramework Project.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -89,8 +99,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="CopyFolder\" />
+    <None Include="Resources\Candy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Candy.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

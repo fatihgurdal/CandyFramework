@@ -22,6 +22,7 @@ namespace CandyFramework.Setup
         public MainForm()
         {
             InitializeComponent();
+            this.Icon = Setup.Properties.Resources.Candy1;
         }
 
         private void MainForm_Load(object sender, EventArgs e)

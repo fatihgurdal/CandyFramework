@@ -21,6 +21,7 @@ namespace CandyFramework.MVC.Controllers
             _userService = userService;
         }
         // GET: Account
+        [AuthorizeFilter]
         public ActionResult Index()
         {
             AccountIndexModel model = new AccountIndexModel();
@@ -29,8 +30,12 @@ namespace CandyFramework.MVC.Controllers
             model.Users = users;
             //ILogger logger = new Logger();
             //logger.WriteLog("başlık", "içerik");
-            throw new Exception("Loglama mekanizması denemesi");
+            //throw new Exception("Loglama mekanizması denemesi");
             return View(model);
+        }
+        public ActionResult Login()
+        {
+            return View();
         }
     }
 }

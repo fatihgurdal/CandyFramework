@@ -1,4 +1,6 @@
 ﻿using CandyFramework.Core.Concrete;
+using CandyFramework.MVC.Common;
+using CandyFramework.MVC.Common.AutProvider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace CandyFramework.MVC.Attiribute
         private bool Authorize { get; set; }
 
         public AuthorizeFilterAttribute() : this(true)
-        {   }
+        { }
         public AuthorizeFilterAttribute(bool authorize)
         {
             Authorize = authorize;
@@ -31,18 +33,22 @@ namespace CandyFramework.MVC.Attiribute
                     }
                 }
                 //Oturum bilgisi Session'a yazıldı
-                if (HttpContext.Current.Session["LoginObject"] != null)
+                using (IAutProvider aut = new SessionProvider())
                 {
-                    //Oturum açma
-                    var user = (LogonUser)HttpContext.Current.Session["LoginObject"];
-                    Core.Concrete.Common.ConnectionProvider.LogonUser = user;
-                    base.OnActionExecuting(filterContext);
+                    var user = aut.GetLogonUser();
+                    if (user != null)
+                    {
+                        //Oturum bilgisi Thread e yazıldı
+                        Core.Concrete.Common.ConnectionProvider.LogonUser = user;
+                        base.OnActionExecuting(filterContext);
+                    }
+                    else
+                    {
+                        // Kullanıcı giriş yapmamış demektir. Login'e yönlendirme
+                        filterContext.Result = new RedirectResult("~/Account/Login");
+                    }
                 }
-                else
-                {
-                    // Kullanıcı giriş yapmamış demektir.
-                    filterContext.Result = new RedirectResult("~/Account/Login");
-                }
+
             }
         }
     }

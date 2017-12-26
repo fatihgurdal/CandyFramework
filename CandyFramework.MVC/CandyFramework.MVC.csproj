@@ -141,6 +141,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attiribute\AuthorizeFilterAttribute.cs" />
     <Compile Include="Attiribute\ErrorFilterAttiribute.cs" />
+    <Compile Include="Common\AutProvider\CookieProvider.cs" />
+    <Compile Include="Common\AutProvider\IAutProvider.cs" />
+    <Compile Include="Common\AutProvider\SessionProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />

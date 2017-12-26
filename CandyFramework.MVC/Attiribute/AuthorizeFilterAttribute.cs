@@ -12,9 +12,7 @@ namespace CandyFramework.MVC.Attiribute
     public class AuthorizeFilterAttribute : ActionFilterAttribute
     {
         private bool Authorize { get; set; }
-
-        public AuthorizeFilterAttribute() : this(true)
-        { }
+        public AuthorizeFilterAttribute() : this(true) { }
         public AuthorizeFilterAttribute(bool authorize)
         {
             Authorize = authorize;
@@ -28,24 +26,20 @@ namespace CandyFramework.MVC.Attiribute
                     var attrs = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeFilterAttribute), true);
                     if (attrs.Any(x => ((AuthorizeFilterAttribute)x).Authorize == false))
                     {
-                        base.OnActionExecuting(filterContext);
-                        return;
+                        base.OnActionExecuting(filterContext); return;
                     }
-                }
-                //Oturum bilgisi Session'a yazıldı
+                }                
                 using (IAutProvider aut = new SessionProvider())
                 {
                     var user = aut.GetLogonUser();
                     if (user != null)
-                    {
-                        //Oturum bilgisi Thread e yazıldı
-                        Core.Concrete.Common.ConnectionProvider.LogonUser = user;
+                    {                        
+                        Core.Concrete.Common.ConnectionProvider.LogonUser = user; //Oturum bilgisi Thread e yazıldı
                         base.OnActionExecuting(filterContext);
                     }
                     else
                     {
-                        // Kullanıcı giriş yapmamış demektir. Login'e yönlendirme
-                        filterContext.Result = new RedirectResult("~/Account/Login");
+                        filterContext.Result = new RedirectResult("~/Account/Login"); // Kullanıcı giriş yapmamış demektir. Login'e yönlendirme
                     }
                 }
 

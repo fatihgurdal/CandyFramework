@@ -12,7 +12,7 @@ using CandyFramework.MVC.Attiribute;
 
 namespace CandyFramework.MVC.Controllers
 {
-    [ErrorFilterAttiribute]
+    [AuthorizeFilter]
     public class AccountController : BaseController
     {
         private readonly IUserService _userService;
@@ -20,19 +20,17 @@ namespace CandyFramework.MVC.Controllers
         {
             _userService = userService;
         }
-        // GET: Account
         [AuthorizeFilter]
         public ActionResult Index()
         {
             AccountIndexModel model = new AccountIndexModel();
-            System.Threading.Thread.Sleep(3000);
+
             List<UserView> users = _userService.All();
             model.Users = users;
-            //ILogger logger = new Logger();
-            //logger.WriteLog("başlık", "içerik");
-            //throw new Exception("Loglama mekanizması denemesi");
+
             return View(model);
         }
+        [AuthorizeFilter(false)]
         public ActionResult Login()
         {
             return View();

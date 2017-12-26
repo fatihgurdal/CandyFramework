@@ -18,6 +18,7 @@ namespace CandyFramework.MVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Account", action = "Index", id = UrlParameter.Optional }
             );
+            
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Web.Http;
 using CandyFramework.Application.Bootstrappers;
 using CandyFramework.Core.Concrete.IoC;
 using CandyFramework.MVC.Controllers;
+using CandyFramework.MVC.Attiribute;
 
 namespace CandyFramework.MVC
 {
@@ -21,7 +22,6 @@ namespace CandyFramework.MVC
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            var path = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
 
             //IoC Register !!!!
             Bootstrapper.Instance.Bootstrap(new DependencyBootstrapper());
@@ -36,8 +36,9 @@ namespace CandyFramework.MVC
             }
 
             DependencyResolver.SetResolver(new UIDependecyResolver());
-            var settingServis = (BusinessLayer.Interface.ISettingService)dependencyContainer.Resolve(typeof(BusinessLayer.Interface.ISettingService));
-            settingServis.LoadSettings();
+            //Get project settings and load settings
+            var settingServis = dependencyContainer.Resolve(typeof(BusinessLayer.Interface.ISettingService));
+            ((BusinessLayer.Interface.ISettingService)settingServis).LoadSettings();
         }
     }
     public class UIDependecyResolver : IDependencyResolver

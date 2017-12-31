@@ -19,6 +19,8 @@ namespace CandyFramework.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new Filters.ErrorFilterAttiribute());
         }
     }
 }

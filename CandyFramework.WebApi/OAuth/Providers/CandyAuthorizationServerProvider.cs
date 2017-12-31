@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin.Security.OAuth;
+﻿using CandyFramework.Core.Concrete.IoC;
+using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace CandyFramework.WebApi.OAuth.Providers
 {
-    public class CandyAuthorizationServerProvider: OAuthAuthorizationServerProvider
+    public class CandyAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         // OAuthAuthorizationServerProvider sınıfının client erişimine izin verebilmek için ilgili ValidateClientAuthentication metotunu override ediyoruz.
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
@@ -22,15 +23,18 @@ namespace CandyFramework.WebApi.OAuth.Providers
             // CORS ayarlarını set ediyoruz.
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-     
+            var dependencyContainer = DependencyContainer.Current;
+            var userService = (BusinessLayer.Interface.IUserService)dependencyContainer.Resolve(typeof(BusinessLayer.Interface.IUserService));
 
             // Kullanıcının access_token alabilmesi için gerekli validation işlemlerini yapıyoruz.
-            if (context.UserName == "Gokhan" && context.Password == "123456")
+            if (userService.UserNamePasswordControl(context.UserName, context.Password))
             {
+                var userGroupService = (BusinessLayer.Interface.IUserGroupService)dependencyContainer.Resolve(typeof(BusinessLayer.Interface.IUserGroupService));
+                var user = userService.GetUserByPassword(context.UserName, context.Password);
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
                 identity.AddClaim(new Claim("sub", context.UserName));
-                identity.AddClaim(new Claim("role", "user"));
+                identity.AddClaim(new Claim("role", user.UserGroupName));
 
                 context.Validated(identity);
             }

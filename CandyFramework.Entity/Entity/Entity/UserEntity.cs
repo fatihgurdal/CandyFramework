@@ -30,6 +30,7 @@ namespace CandyFramework.Entity.Entity.Entity
         }
         public UserView Map()
         {
+            var userGroupName = this.UserGroup?.Name;
             if (this.UserGroup != null)
                 this.UserGroup.Users = null;
             //Entity to View Model
@@ -41,6 +42,7 @@ namespace CandyFramework.Entity.Entity.Entity
             }
             //FirstName and LastName to Full Name
             result.FullName = $"{this.FirstName} {this.LastName}";
+            result.UserGroupName = userGroupName;
 
             return result;
         }

@@ -16,6 +16,7 @@ namespace CandyFramework.Entity.Entity.ViewModel
         public string ProfilPhotoBase64 { get; set; }
         public string FullName { get; set; }
         public UserGroupView UserGroup { get; set; }
+        public string UserGroupName { get; set; }
 
         public UserView()
         {

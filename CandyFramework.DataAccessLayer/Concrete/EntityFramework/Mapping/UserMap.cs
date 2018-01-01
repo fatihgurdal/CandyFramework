@@ -24,7 +24,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework.Mapping
             config.Property(x => x.FirstName).HasColumnName("FIRSTNAME").HasMaxLength(100).IsRequired();
             config.Property(x => x.LastName).HasColumnName("LASTNAME").HasMaxLength(100).IsRequired();
             config.Property(x => x.Email).HasColumnName("EMAIL").HasMaxLength(100).IsRequired();
-            config.Property(x => x.Password).HasColumnName("PASSWORD").HasMaxLength(30).IsRequired();
+            config.Property(x => x.Password).HasColumnName("PASSWORD").HasMaxLength(150).IsRequired();
             config.Property(x => x.UserGroupId).HasColumnName("USER_GROUP_ID");
 
             config.Property(x => x.CreateDate).HasColumnOrder(100).HasColumnName("CREATE_DATE").IsRequired();

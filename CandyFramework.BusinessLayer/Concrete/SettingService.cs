@@ -66,6 +66,7 @@ namespace CandyFramework.BusinessLayer.Concrete
                 Core.Concrete.Common.Setting.LogClass = log.Value;
             }
             #endregion
+            Core.Concrete.Common.Setting.SiteName = settings.FirstOrDefault(x => x.KeyName == "SiteName")?.Value;
         }
         public override void Update(SettingView entity)
         {

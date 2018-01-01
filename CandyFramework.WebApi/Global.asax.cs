@@ -19,14 +19,14 @@ namespace CandyFramework.WebApi
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new WindsorCompositionRoot(this.container));
+            /*GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new WindsorCompositionRoot(this.container));
 
             //Get project settings and load settings
             var settingServis = dependencyContainer.Resolve(typeof(BusinessLayer.Interface.ISettingService));
-            ((BusinessLayer.Interface.ISettingService)settingServis).LoadSettings();
+            ((BusinessLayer.Interface.ISettingService)settingServis).LoadSettings();*/
         }
     }
-    public class UIDependecyResolver : IDependencyResolver
+    /*public class UIDependecyResolver : IDependencyResolver
     {
         private readonly IDependencyResolver _resolver = DependencyResolver.Current;
 
@@ -57,5 +57,5 @@ namespace CandyFramework.WebApi
             }
             return _resolver.GetServices(serviceType);
         }
-    }
+    }*/
 }

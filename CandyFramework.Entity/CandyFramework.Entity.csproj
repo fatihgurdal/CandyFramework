@@ -59,6 +59,7 @@
     <Compile Include="Entity\ViewModel\SettingView.cs" />
     <Compile Include="Entity\ViewModel\UserGroupView.cs" />
     <Compile Include="Entity\ViewModel\UserView.cs" />
+    <Compile Include="Entity\ViewModel\VirtualViewModel\LoginView.cs" />
     <Compile Include="Entity\ViewModel\VirtualViewModel\UserRegisterView.cs" />
     <Compile Include="Interface\Base\ICandyLog.cs" />
     <Compile Include="Interface\Base\ISetting.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Interface\ViewModel\ISettingView.cs" />
     <Compile Include="Interface\ViewModel\IUserGroupView.cs" />
     <Compile Include="Interface\ViewModel\IUserView.cs" />
+    <Compile Include="Interface\ViewModel\VirtualViewModel\ILogin.cs" />
     <Compile Include="Interface\ViewModel\VirtualViewModel\IUserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

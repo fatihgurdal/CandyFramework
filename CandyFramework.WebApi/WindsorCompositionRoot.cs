@@ -10,26 +10,31 @@ namespace CandyFramework.WebApi
 {
     public class WindsorCompositionRoot : IHttpControllerActivator
     {
-        private readonly IWindsorContainer container;
+        //TODO: Castle Windsor ayarları
+        //private readonly IWindsorContainer container;
+        public WindsorCompositionRoot()
+        {
 
-        public WindsorCompositionRoot(IWindsorContainer container)
+        }
+        /*public WindsorCompositionRoot(IWindsorContainer container)
         {
             this.container = container;
-        }
+        }*/
 
         public IHttpController Create(
             HttpRequestMessage request,
             HttpControllerDescriptor controllerDescriptor,
             Type controllerType)
         {
-            var controller =
+            /*var controller =
                 (IHttpController)this.container.Resolve(controllerType);
 
             request.RegisterForDispose(
                 new Release(
                     () => this.container.Release(controller)));
 
-            return controller;
+            return controller;*/
+            throw new NotImplementedException();
         }
 
         private class Release : IDisposable

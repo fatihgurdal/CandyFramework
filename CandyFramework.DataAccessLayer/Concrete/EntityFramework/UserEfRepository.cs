@@ -1,4 +1,5 @@
-﻿using CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base;
+﻿using CandyFramework.Core.Concrete.Common;
+using CandyFramework.DataAccessLayer.Concrete.EntityFramework.Base;
 using CandyFramework.DataAccessLayer.Concrete.EntityFramework.Context;
 using CandyFramework.DataAccessLayer.Interface;
 using CandyFramework.Entity.Entity.Entity;
@@ -28,7 +29,15 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework
         /// <returns></returns>
         public UserEntity GetUserByPassword(string userName, string password)
         {
-            return base.First(x => (x.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(userName, StringComparison.InvariantCultureIgnoreCase)) && x.Password == password);
+            var user = base.First(x => (x.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(userName, StringComparison.InvariantCultureIgnoreCase)));
+            if (user.Password.Decrypt() == password)
+            {
+                return user;
+            }
+            else
+            {
+                return default(UserEntity);
+            }
         }
 
         public List<UserEntity> SearhUsers(string searchText)
@@ -40,7 +49,7 @@ namespace CandyFramework.DataAccessLayer.Concrete.EntityFramework
 
         public bool UserNamePasswordControl(string userName, string password)
         {
-            return base.Any(x => (x.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(userName, StringComparison.InvariantCultureIgnoreCase)) && x.Password == password);
+            return GetUserByPassword(userName, password) != null;
         }
     }
 }

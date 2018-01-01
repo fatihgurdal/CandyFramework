@@ -12,6 +12,7 @@ namespace CandyFramework.Core.Concrete.Common
         public static SuperUser SuperUser { get; set; } = new SuperUser();
         public static ErrorMail ErrorMail { get; set; } = new ErrorMail();
         public static string LogClass { get; set; } = string.Empty;
+        public static string SiteName { get; set; } = string.Empty;
     }
     public class SettingMail
     {

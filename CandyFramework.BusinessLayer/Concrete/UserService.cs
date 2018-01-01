@@ -18,12 +18,12 @@ namespace CandyFramework.BusinessLayer.Concrete
 
         public UserView GetUserByPassword(string userName, string password)
         {
-            return userRepository.GetUserByPassword(userName, password.Encrypt()).Map();
+            return userRepository.GetUserByPassword(userName, password).Map();
         }
 
         public bool UserNamePasswordControl(string userName, string password)
         {
-            return userRepository.UserNamePasswordControl(userName, password.Encrypt());
+            return userRepository.UserNamePasswordControl(userName, password);
         }
     }
 }

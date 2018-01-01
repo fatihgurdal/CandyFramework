@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201712051219451_FirstMigration_v1.Designer.cs">
       <DependentUpon>201712051219451_FirstMigration_v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801011413266_passwordUpgrade.cs" />
+    <Compile Include="Migrations\201801011413266_passwordUpgrade.Designer.cs">
+      <DependentUpon>201801011413266_passwordUpgrade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712051219451_FirstMigration_v1.resx">
       <DependentUpon>201712051219451_FirstMigration_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801011413266_passwordUpgrade.resx">
+      <DependentUpon>201801011413266_passwordUpgrade.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

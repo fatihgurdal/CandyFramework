@@ -45,6 +45,8 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(326, 212);
             this.listBox1.TabIndex = 0;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // btnInsert
             // 
@@ -54,6 +56,7 @@
             this.btnInsert.TabIndex = 1;
             this.btnInsert.Text = "Ekle";
             this.btnInsert.UseSelectable = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnRemove
             // 
@@ -63,6 +66,7 @@
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Çıkar";
             this.btnRemove.UseSelectable = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnEdit
             // 
@@ -86,6 +90,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Konfigürasyon Düzenleyicisi";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
